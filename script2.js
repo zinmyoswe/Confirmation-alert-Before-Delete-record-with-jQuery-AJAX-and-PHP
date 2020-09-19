@@ -8,7 +8,20 @@ $(document).ready(function(){
         var deleteid = $(this).data('id');
         
         // Confirm box
-        bootbox.confirm("Do you really want to delete record?", function(result) {
+        bootbox.confirm({
+            title: "Destroy planet?",
+            message: "Do you want to activate the Deathstar now? This cannot be undone.",
+            buttons: {
+                cancel: {
+                    label: '<i class="fa fa-times"></i> Cancel'
+                },
+                confirm: {
+                    label: '<i class="fa fa-check"></i> Confirm'
+                }
+            },
+
+
+            callback: function(result) {
             
             if(result){
                 // AJAX Request
@@ -32,7 +45,8 @@ $(document).ready(function(){
                 });
             }
             
-        });
+            
+        }});
         
     });
 });
